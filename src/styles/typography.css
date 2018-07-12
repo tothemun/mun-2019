@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'Graphik';
+    src: local('Graphik Bold'), local('Graphik-Bold'),
+        url('./fonts/Graphik-Bold.woff2') format('woff2'),
+        url('./fonts/Graphik-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: local('Graphik Semibold'), local('Graphik-Semibold'),
+        url('./fonts/Graphik-Semibold.woff2') format('woff2'),
+        url('./fonts/Graphik-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: local('Graphik Regular'), local('Graphik-Regular'),
+        url('./fonts/Graphik-Regular.woff2') format('woff2'),
+        url('./fonts/Graphik-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+  font-size: $(remBase)px;
+  color: $textColor;
+  font-family: 'Graphik', Helvetica, sans-serif;
+}
+
+strong {
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+  margin-bottom: $spacingBase;
+}
+
+h1 {
+  font-family: $headerFamily;
+  font-size: 6.854rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  line-height: resolve(162 / $remBase)rem;
+}
+
+h2 {
+  font-family: $headerFamily;
+  font-size: 2.236rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  line-height: resolve(50 / $remBase)rem;
+  margin-bottom: $spacingMedium;
+}
+
+h3 {
+  font-family: $bodyFamily;
+  font-size: 2.618rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: resolve(64 / $remBase)rem;
+  margin-bottom: $spacingSmall;
+}
+
+h4 {
+  font-family: $bodyFamily;
+  font-size: 1.618rem;
+  letter-spacing: 1px;
+  line-height: 2.4375rem;
+  font-weight: 600;
+  line-height: resolve(42 / $remBase)rem;
+  margin-bottom: $spacingSmall;
+}
+
+h5 {
+  font-family: $bodyFamily;
+  font-size: 0.758rem;
+  line-height: 1rem;
+  letter-spacing: 1px;
+  line-height: resolve(22 / $remBase)rem;
+  font-weight: 400;
+  margin-bottom: $spacingBase;
+}
+
+h6 {
+  font-family: $bodyFamily;
+  font-size: 0.618em;
+  letter-spacing: 1px;
+  line-height: resolve(13 / $remBase)rem;
+  font-weight: 400;
+  margin-bottom: $spacingBase;
+}
+
+p {
+  font-family: $bodyFamily;
+  font-size: 1rem;
+  line-height: resolve(28 / $remBase)rem;
+  letter-spacing: .8px;
+  margin-bottom: $spacingMedium;
+}
+
+blockquote {
+  margin-left: $spacingHuge;
+  font-weight: 600;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: $primaryColor;
+    position: absolute;
+    left: -100%;
+    right: 100%;
+    top: 11px;
+    margin-right: $spacingSmall;
+  }
+}
+
+@media(max-width: $sm) {
+  html {
+    font-size: resolve($remBase * .7)px;
+  }
+
+  h1 {
+    font-size: 1.854rem;
+    line-height: resolve(40 / $remBase)rem;
+  }
+}

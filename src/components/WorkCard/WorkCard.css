@@ -1,0 +1,95 @@
+.container {
+  display: none;
+  margin-bottom: 140px;
+  position: relative;
+  cursor: pointer;
+}
+
+.title, .image:after {
+  transition: 400ms ease-in-out opacity;
+}
+
+.image {
+  height: 314px;
+
+  &:after {
+    opacity: 0;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+  }
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: $spacingSmall;
+}
+
+.loaded {
+  display: block;
+  animation: slideUpFadeIn ease 1s;
+  will-change: opacity, transform;
+}
+
+.details {
+  position: absolute;
+  right: -60px;
+  top: 69px;
+  width: 265px;
+}
+
+.snippet {
+  background-color: #fff;
+  padding: $spacingMedium;
+  position: relative;
+  margin-bottom: $spacingMedium;
+  box-shadow: -4px 6px 10px 0px rgba(0,0,0,.44);
+
+  &:before {
+    border: 2px solid $textColor;
+    content: '';
+    display: block;
+    position: absolute;
+    left: -10px;
+    right: 10px;
+    top: 10px;
+    bottom: -10px;
+    z-index: -1;
+  }
+}
+
+.left {
+  left: -60px;
+  right: auto;
+}
+
+@media (max-width: $sm) {
+  .left {
+    left: 5%;
+  }
+
+  .details {
+    right: auto;
+    top: auto;
+    bottom: -60px;
+    width: 90%;
+    left: 5%;
+  }
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(100px)  ;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)  ;
+  }
+}

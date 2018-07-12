@@ -1,0 +1,28 @@
+.link {
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.image {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.container {
+  display: flex;
+  margin-bottom: $spacingLarge;
+}
+
+@media(max-width: $sm) {
+  .container {
+    flex-direction: column;
+  }
+
+  .image {
+    position: relative;
+    margin-bottom: $spacingSmall;
+  }
+}

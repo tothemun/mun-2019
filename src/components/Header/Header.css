@@ -1,0 +1,24 @@
+.container {
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.image {
+  width: 80%;
+  display: block;
+  border: 2px solid #222;
+  padding: 10px;
+  position: relative;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: $sm) {
+  .container {
+    width: 100%;
+  }
+}

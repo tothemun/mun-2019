@@ -1,0 +1,53 @@
+.container {
+  background-color: #fff;
+  height: 50px;
+  padding: 10px 0;
+  box-shadow: 0px 1px 0px 0px #222;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+}
+
+.logo {
+  height: 30px;
+  display: block;
+}
+
+.logoLink {
+  float: left;
+}
+
+.linkList {
+  list-style: none;
+  float: right;
+  margin: 0;
+
+  li {
+    float: left;
+    display: block;
+    margin: 0 8px;
+    line-height: 34px;
+    position: relative;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $textColor;
+    display: inline-block;
+    font-weight: 600;
+    font-size: resolve(13 / $remBase)rem;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+    top: -4px;
+  }
+}
+
+.active {
+  color: red;
+}

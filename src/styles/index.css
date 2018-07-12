@@ -1,0 +1,56 @@
+@import 'normalize.css';
+@import './typography.css';
+@import './spacing.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  margin-top: 50px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.centerVert {
+  display: flex;
+  align-items: center;
+}
+
+.inline {
+  * {
+    display: inline-block;
+  }
+}
+
+.faded {
+  color: $lightGray;
+}
+
+.undecorated {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+    text-shadow: 1px 1px 0px #fff;
+  }
+}
+
+.pullRight {
+  float: right;
+}
+
+.patternHash {
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQYV2NkQAX/GZH4/xkYGBhhAmAOSBJEwDkgAQCCrgQEjpMcPgAAAABJRU5ErkJggg==);
+}
+
+.containContent {
+  overflow: hidden;
+}
+
+:global {
+  .link-more {
+    display: none;
+  }
+}
