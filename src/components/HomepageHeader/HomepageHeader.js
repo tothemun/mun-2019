@@ -2,18 +2,25 @@ import cn from 'classnames';
 import React, { Component } from 'react';
 import React3 from 'react-three-renderer';
 import * as THREE from 'three';
-import Sphere from './Sphere';
+import ObjectModel from 'react-three-renderer-objects';
+
+import skullObj from './skull.obj';
+import skullMtl from './skull.mtl';
+
 import styles from './HomepageHeader.css';
 import Headline from './headline.svg';
 
 class HomepageHeader extends Component {
   componentDidMount() {
     this.cameraPosition = new THREE.Vector3(0, 0, 5);
+
+    const { $scene } = this;
+    this.setState({ $scene });
   }
 
-  onAnimate = () => {
-    this.$sphere.onAnimate();
-  }
+  // onAnimate = () => {
+  //   this.$sphere.onAnimate();
+  // }
 
   render() {
     const width = window.innerWidth; // canvas width
@@ -40,7 +47,7 @@ class HomepageHeader extends Component {
             onAnimate={this.onAnimate}
             clearAlpha={0}
           >
-            <scene>
+            <scene ref={ (el) => this.$scene = el }>
               <perspectiveCamera
                 name="camera"
                 fov={75}
@@ -56,14 +63,30 @@ class HomepageHeader extends Component {
                 lookAt={new THREE.Vector3(0, 0, 0)}
                 intensity={.5}
                 />
-              <Sphere ref={ (el) => this.$sphere = el}/>
+              <group name='skullGroup'>
+                <ObjectModel
+                  name='skullObject'
+                  model={skullObj}
+                  material={skullMtl}
+                  position={new THREE.Vector3(0, -1, 0)}
+                  rotation={new THREE.Euler(0, 0, 0)}
+                  scale={new THREE.Vector3(.25, .25, .25)}
+                  scene={this.state.$scene}
+                  group='skullGroup'
+                >
+                </ObjectModel>
+              </group>
             </scene>
           </React3>
-          <object data={Headline} alt='Make It Matter' aria-label='Make It Matter' className={styles.headline}/>
+          {/*<object data={Headline} alt='Make It Matter' aria-label='Make It Matter' className={styles.headline}/>*/}
         </div>
       </div>
     );
   }
+
+  state = {
+    $scene: {}
+  };
 }
 
 export default HomepageHeader;
