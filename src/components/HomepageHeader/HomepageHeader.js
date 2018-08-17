@@ -3,12 +3,11 @@ import React, { Component } from 'react';
 import React3 from 'react-three-renderer';
 import * as THREE from 'three';
 import ObjectModel from 'react-three-renderer-objects';
-
-import skullObj from './skull.obj';
-import skullMtl from './skull.mtl';
-
 import styles from './HomepageHeader.css';
 import Headline from './headline.svg';
+import skullObj from './skull.obj';
+import skullMtl from './skull.mtl';
+import ParticleSystem from './ParticleSystem';
 
 class HomepageHeader extends Component {
   componentDidMount() {
@@ -18,9 +17,11 @@ class HomepageHeader extends Component {
     this.setState({ $scene });
   }
 
-  // onAnimate = () => {
-  //   this.$sphere.onAnimate();
-  // }
+  onAnimate = () => {
+    //this.$sphere.onAnimate();
+
+    // Calculate swarming against obj
+  }
 
   render() {
     const width = window.innerWidth; // canvas width
@@ -76,6 +77,7 @@ class HomepageHeader extends Component {
                 >
                 </ObjectModel>
               </group>
+              <ParticleSystem scene={this.state.$scene} />
             </scene>
           </React3>
           {/*<object data={Headline} alt='Make It Matter' aria-label='Make It Matter' className={styles.headline}/>*/}
