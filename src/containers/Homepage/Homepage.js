@@ -32,7 +32,7 @@ class Homepage extends Component {
         <HomepageHeader display={this.state.loaded}/>
         <Container>
           <HomepageSection title="Our Clients">
-            <ClientList clients={content.clients}/>
+            <ClientList clients={content.clients.entries}/>
           </HomepageSection>
           <ContactForm />
         </Container>
