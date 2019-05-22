@@ -25,9 +25,17 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Graphik';
+    src: url('./fonts/Graphik-Extralight.woff2') format('woff2'),
+        url('./fonts/Graphik-Extralight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
 html {
   font-size: $(remBase)px;
-  color: $textColor;
+  color: #fff;
   font-family: 'Graphik', Helvetica, sans-serif;
 }
 
@@ -42,10 +50,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 h1 {
   font-family: $headerFamily;
-  font-size: 6.854rem;
-  font-weight: 900;
+  font-size: 48px;
+  font-weight: 200;
   letter-spacing: 5px;
-  line-height: resolve(162 / $remBase)rem;
+  line-height: 57px;
 }
 
 h2 {
@@ -67,13 +75,10 @@ h3 {
 }
 
 h4 {
-  font-family: $bodyFamily;
-  font-size: 1.618rem;
+  font-family: $headerFamily;
+  font-size: 12px;
   letter-spacing: 1px;
-  line-height: 2.4375rem;
-  font-weight: 600;
-  line-height: resolve(42 / $remBase)rem;
-  margin-bottom: $spacingSmall;
+  font-weight: 200;
 }
 
 h5 {

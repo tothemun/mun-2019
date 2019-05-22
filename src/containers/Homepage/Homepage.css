@@ -1,4 +1,13 @@
-.svnthGen {
-  position: relative;
-  top: -8px;
+.container {
+  background-color: $primaryColor;
+}
+
+.logo {
+  max-width: 480px;
+}
+
+.address {
+  position: absolute;
+  bottom: $spacingMedium;
+  right: $spacingMedium;
 }

@@ -1,15 +1,9 @@
 import App from './App';
-import BlogRoll from './BlogRoll/BlogRoll';
-import BlogPost from './BlogPost/BlogPost';
+import Card from './Card';
 import Homepage from './Homepage/Homepage';
-import LabsPage from './LabsPage';
-import WorkPage from './WorkPage/WorkPage';
 
 export {
   App,
-  BlogRoll,
-  BlogPost,
-  Homepage,
-  LabsPage,
-  WorkPage
+  Card,
+  Homepage
 };

@@ -2,10 +2,17 @@
 @import './typography.css';
 @import './spacing.css';
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
-  margin-top: 50px;
+  background-color: $primaryColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 * {

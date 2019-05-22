@@ -15,12 +15,7 @@ import {
 import baseStyles from '_styles/index.css';
 import variables from '_styles/variables';
 import styles from './Homepage.css';
-import Keurig from './keurig_logo.svg';
-import SeventhGen from './seventh_gen_logo.svg';
-import Mamava from './mamava_logo.svg';
-import HotelVT from './hotel_vt_logo.svg';
-import Wildfire from './wildfire_logo.svg';
-import MTV from './mtv_logo.svg';
+import MUNLogo from './logo.svg';
 
 class Homepage extends Component {
   componentWillMount() {
@@ -39,51 +34,22 @@ class Homepage extends Component {
     const clientClass = window.innerWidth > parseInt(variables.sm, 10) ? baseStyles.centerVert : null;
 
     return (
-      <div className={baseStyles.pt5}>
-        <HomepageHeader display={this.state.loaded}/>
-        <Container>
-          <HomepageSection title='Select Work'>
-            <Row>
-              { pages.map((page, key) => (
-                <Col xs={12} md={8} offset={{ md: key % 2 * 4 }} key={key}>
-                  <WorkCard page={page} loaded={fetchedPages} iteration={key}/>
-                </Col>
-              ))}
-            </Row>
-          </HomepageSection>
-          <HomepageSection title='Clients'>
-            <Row className={clientClass}>
-              <Col xs={6} md={4} lg={2}>
-                <ProgressiveImage src={MTV} alt='MTV Logo' style={{height: 50}} fit='contain' className={baseStyles.mb4}/>
-              </Col>
-              <Col xs={6} md={4} lg={2}>
-                <ProgressiveImage src={Keurig} alt='Client' fit='contain' className={baseStyles.mb4}/>
-              </Col>
-              <Col xs={6} md={4} lg={2}>
-                <ProgressiveImage src={SeventhGen} alt='Client' fit='contain' className={cn(baseStyles.mb4, styles.svnthGen)}/>
-              </Col>
-              <Col xs={6} md={4} lg={2}>
-                <ProgressiveImage src={Mamava} alt='Client' fit='contain' className={baseStyles.mb4}/>
-              </Col>
-              <Col xs={6} md={4} lg={2}>
-                <ProgressiveImage src={HotelVT} alt='Client' style={{height: 50}} fit='contain' className={baseStyles.mb4}/>
-              </Col>
-              <Col xs={6} md={4} lg={2}>
-                <ProgressiveImage src={Wildfire} alt='Client' fit='contain' className={baseStyles.mb4}/>
-              </Col>
-            </Row>
-          </HomepageSection>
-          <HomepageSection title='Writing'>
-            { posts.map((post, key) => (
-              <BlogPostCard
-                post={post}
-                key={key}
-                loaded={fetchedPosts}
-              />
-            ))}
-          </HomepageSection>
-          <ContactForm />
+      <div>
+        <Container className={styles.container}>
+          <Row>
+            <Col xs={12} md={6}>
+              <ProgressiveImage src={MUNLogo} alt='Client' fit='contain' className={baseStyles.mb4}/>
+            </Col>
+            <Col xs={12} md={6}>
+              <h1>Creative</h1>
+              <h1>Technology</h1>
+              <h1>Studio</h1>
+            </Col>
+          </Row>
         </Container>
+        <div className={styles.address}>
+          <h4>NYC</h4>
+        </div>
       </div>
     );
   }
