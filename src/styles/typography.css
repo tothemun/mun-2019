@@ -51,7 +51,7 @@ h1 {
 h2 {
   font-family: $headerFamily;
   font-size: 2.236rem;
-  font-weight: 900;
+  font-weight: 500;
   letter-spacing: 3px;
   line-height: resolve(50 / $remBase)rem;
   margin-bottom: $spacingMedium;

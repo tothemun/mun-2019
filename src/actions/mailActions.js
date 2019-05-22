@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { URL_BASE } from './ApiRoutes';
 
 export function subscribeEmail({ email }) {
   const data = {
@@ -7,9 +6,9 @@ export function subscribeEmail({ email }) {
     status: 'subscribed'
   };
 
-  return axios.post(`${URL_BASE}/mailchimp/v1/subscribe`, data);
+  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/mailchimp/v1/subscribe`, data);
 }
 
 export function sendContactForm(data) {
-  return axios.post(`${URL_BASE}/mail/v1/contact`, data);
+  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/mail/v1/contact`, data);
 }

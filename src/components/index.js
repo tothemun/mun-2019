@@ -1,6 +1,7 @@
 import Authors from './Authors';
 import BlogPostCard from './BlogPostCard/BlogPostCard';
 import Button from './Button/Button';
+import ClientList from './ClientList';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import HomepageHeader from './HomepageHeader/HomepageHeader';
@@ -21,6 +22,7 @@ import WPContent from './WPContent/WPContent';
 
 export {
   Authors,
+  ClientList,
   ContactForm,
   BlogPostCard,
   Button,

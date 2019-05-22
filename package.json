@@ -2,6 +2,7 @@
   "name": "mun-2018",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@researchgate/react-intersection-observer": "^0.6.0",
     "axios": "^0.15.3",

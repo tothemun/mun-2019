@@ -1,0 +1,6 @@
+.divider {
+  background-color: $primaryColor;
+  height: 4px;
+  width: 100%;
+  margin-bottom: $spacingMedium;
+}
