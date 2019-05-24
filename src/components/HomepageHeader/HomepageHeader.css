@@ -10,16 +10,10 @@ $backgroundAnimationTime: 500;
   justify-content: center;
   margin-bottom: $spacingGiant;
   height: 800px;
+  color: #fff;
 
-  &::before {
-    animation: appear $(backgroundAnimationTime)ms ease-in-out forwards;
-    background-color: #C5C5C5;
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: calc(100% - 120px);
-    z-index: -1;
+  h2 {
+    text-align: center;
   }
 }
 
@@ -30,13 +24,16 @@ $backgroundAnimationTime: 500;
   position: relative;
   height: 100%;
   overflow: hidden;
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   animation-name: slideUpFadeIn;
   animation-timing-function: ease;
   animation-duration: $(imageAnimationTime)ms;
   animation-delay: 250ms;
   animation-fill-mode: forwards;
   opacity: 0;
+  background-color: $primaryColor;
 
   canvas {
     position: absolute;

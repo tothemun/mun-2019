@@ -18,9 +18,9 @@ const Footer = () => (
       <Row>
         <Col xs={12} md={2} className={baseStyles.mb4}>
           <img src={Logo} alt='MUN Logo' className={styles.logo}/>
-          <h5 className={baseStyles.mb0}>119 Ingraham St</h5>
-          <h5 className={baseStyles.mb0}>Studio 114</h5>
-          <h5 className={baseStyles.mb0}>Brooklyn, NY 11237</h5>
+          <h5 className={baseStyles.mb0}>35 Meadow St</h5>
+          <h5 className={baseStyles.mb0}>Suite 308</h5>
+          <h5 className={baseStyles.mb0}>Brooklyn, NY 11206</h5>
         </Col>
         <Col xs={12} md={4} offset={{md: 6}}>
           <div className={cn({[baseStyles.pullRight]: window.innerWidth > parseInt(variables.sm, 10)})}>

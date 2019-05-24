@@ -26,10 +26,6 @@ class HomepageHeader extends Component {
           className={cn(styles.animation, {[styles.display]: display})}
           ref={ (el) => this.$animationContainer = el}
         >
-          <span className={styles.left}></span>
-          <span className={styles.top}></span>
-          <span className={styles.right}></span>
-          <span className={styles.bottom}></span>
           <React3
             alpha={true}
             antialias={true}
@@ -59,7 +55,7 @@ class HomepageHeader extends Component {
               <Sphere ref={ (el) => this.$sphere = el}/>
             </scene>
           </React3>
-          <object data={Headline} alt='Make It Matter' aria-label='Make It Matter' className={styles.headline}/>
+          <h2>New Site Coming Soon</h2>
         </div>
       </div>
     );
