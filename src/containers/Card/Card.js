@@ -14,6 +14,7 @@ class Card extends Component {
     rotation: new THREE.Quaternion(),
     scale: new THREE.Vector3(1, 1, 1)
   };
+  isUpdating = false;
 
   constructor(props) {
     super(props);
@@ -21,10 +22,17 @@ class Card extends Component {
   }
 
   componentDidMount() {
+    this.isUpdating = true;
     this.update();
   }
 
+  componentWillUnmount() {
+    this.isUpdating = false;
+  }
+
   update = () => {
+    if (!this.isUpdating) return;
+
     const canvas = this.$webcam.getCanvas();
     if (canvas !== null) {
       const ctx = canvas.getContext('2d');
@@ -120,6 +128,7 @@ class Card extends Component {
               onUpdate={self => self.updateProjectionMatrix()}
               position={new THREE.Vector3(0, -1000, 0)}
             />
+            <pointLight />
             <group position={position} quaternion={rotation} scale={scale}>
               <Asteroids />
               <OcclusionCard />
