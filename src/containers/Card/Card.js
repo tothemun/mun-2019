@@ -5,12 +5,13 @@ import ReactDOM from 'react-dom';
 import { Canvas } from 'react-three-fiber';
 import Webcam from 'react-webcam';
 import styles from './Card.css';
-import { PerspectiveCamera } from 'three';
+import Asteroids from './Asteroids';
+import OcclusionCard from './OcclusionCard';
 
 class Card extends Component {
   state = { 
     position: new THREE.Vector3(0, 0, 0),
-    rotation: new THREE.Euler(),
+    rotation: new THREE.Quaternion(),
     scale: new THREE.Vector3(1, 1, 1)
   };
 
@@ -55,12 +56,6 @@ class Card extends Component {
 
     const { bestTranslation, bestRotation } = posit.pose(corners);
     this.updateObject(bestRotation, bestTranslation);
-    console.log(bestTranslation);
-    // this.$box.matrix = pose.bestRotation;
-    // this.$box.matrix.setPosition(pose.bestTranslation);
-    // this.$box.position.set(pose.bestTranslation);
-    // this.$box.matrixAutoUpdate = false;
-    // console.log(this.$box);
   }
 
   webcamRef = webcam => {
@@ -72,19 +67,23 @@ class Card extends Component {
 
     const scale = new THREE.Vector3(markerSize, markerSize, markerSize);
 
-    const objRotation = new THREE.Euler();
-    objRotation.x = -Math.asin(-rotation[1][2]);
-    objRotation.y = -Math.atan2(rotation[0][2], rotation[2][2]);
-    objRotation.z = Math.atan2(rotation[1][0], rotation[1][1]);
-
+    const eRot = new THREE.Euler();
+    eRot.x = -Math.asin(-rotation[1][2]);
+    eRot.y = -Math.atan2(rotation[0][2], rotation[2][2]);
+    eRot.z = Math.atan2(rotation[1][0], rotation[1][1]);
+    const qRot = new THREE.Quaternion().setFromEuler(eRot);
+    
+    // const objRotation = new THREE.Quaternion().fromArray(rotation);
+    // console.log(objRotation);
     const position = new THREE.Vector3();
     position.x = translation[0];
     position.y = translation[1];
     position.z = -translation[2];
 
+    
     this.setState({
       position,
-      rotation: objRotation,
+      rotation: qRot,
       scale
     });
   }
@@ -119,15 +118,12 @@ class Card extends Component {
               near={1}
               far={10000}
               onUpdate={self => self.updateProjectionMatrix()}
+              position={new THREE.Vector3(0, -1000, 0)}
             />
-            <mesh 
-              position={position}
-              rotation={rotation}
-              scale={scale}
-            >
-              <octahedronGeometry attach="geometry" />
-              <meshBasicMaterial attach="material" color="peachpuff" opacity={0.5} transparent />
-            </mesh>
+            <group position={position} quaternion={rotation} scale={scale}>
+              <Asteroids />
+              <OcclusionCard />
+            </group>
           </Canvas>
         </div>
       </div>
