@@ -7,7 +7,6 @@ import {
   BlogPostCard,
   ClientList,
   ContactForm,
-  HomepageHeader,
   HomepageSection,
   ProgressiveImage,
   WorkCard
@@ -56,7 +55,7 @@ class Homepage extends Component {
 
     return (
       <div>
-        <HomepageHeader display={this.state.loaded}/>
+        {/*<HomepageHeader display={this.state.loaded}/>*/}
         <Container>
           <HomepageSection title="Our Clients">
             <ClientList clients={clients}/>

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { Component } from 'react';
-import React3 from 'react-three-renderer';
 import * as THREE from 'three';
+import { Canvas } from 'react-three-fiber';
 import Sphere from './Sphere';
 import styles from './HomepageHeader.css';
 import Headline from './headline.svg';
@@ -26,6 +26,8 @@ class HomepageHeader extends Component {
           className={cn(styles.animation, {[styles.display]: display})}
           ref={ (el) => this.$animationContainer = el}
         >
+          
+        {/*
           <React3
             alpha={true}
             antialias={true}
@@ -55,6 +57,7 @@ class HomepageHeader extends Component {
               <Sphere ref={ (el) => this.$sphere = el}/>
             </scene>
           </React3>
+        */}
           <h2>New Site Coming Soon</h2>
         </div>
       </div>
