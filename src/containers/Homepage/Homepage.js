@@ -16,6 +16,19 @@ import baseStyles from '_styles/index.css';
 import variables from '_styles/variables';
 import styles from './Homepage.css';
 
+import HotelVT from './hotel_vt.png';
+import Mamava from './mamava.png';
+import MTV from './mtv.png';
+import Seventh from './seventh.png';
+import Sutter from './sutter.png';
+import Tempur from './tempur.png';
+import Visa from './visa.png';
+import WSJ from './wsj.png';
+import Atlantic from './atlantic.png';
+import Cartier from './cartier.png';
+import Estee from './estee.png';
+import Fifa from './fifa.png';
+
 class Homepage extends Component {
   componentDidMount() {
     this.props.fetchClients();
@@ -25,14 +38,28 @@ class Homepage extends Component {
   render() {
     const { content, fetchedContent } = this.props;
 
-    if (!fetchedContent) return null;
+    const clients = [
+      HotelVT,
+      Mamava,
+      MTV,
+      Seventh,
+      Sutter,
+      Tempur,
+      Visa,
+      WSJ,
+      Atlantic,
+      Cartier,
+      Estee,
+      Fifa
+    ];
+
 
     return (
-      <div className={baseStyles.pt5}>
+      <div>
         <HomepageHeader display={this.state.loaded}/>
         <Container>
           <HomepageSection title="Our Clients">
-            <ClientList clients={content.clients.entries}/>
+            <ClientList clients={clients}/>
           </HomepageSection>
           <ContactForm />
         </Container>

@@ -14,6 +14,8 @@ $backgroundAnimationTime: 500;
 
   h2 {
     text-align: center;
+    position: relative;
+    z-index: 999;
   }
 }
 

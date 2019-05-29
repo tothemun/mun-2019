@@ -6,7 +6,7 @@ const ClientList = ({ clients }) => (
   <Row>
     { clients.map((client) => (
       <Col xs={6} md={4} lg={2}>
-        <ProgressiveImage src={client.logo.path} />
+        <ProgressiveImage src={client} />
       </Col>
     ))}
   </Row>
