@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import React, { useRef, useMemo } from 'react';
 import { useRender } from 'react-three-fiber';
+import { colorLuminance } from '_utils';
 
 const Asteroids = (props) => {
   let group = useRef();
@@ -16,25 +17,38 @@ const Asteroids = (props) => {
   });
 
   const [ geo, mat, vertices, coords ] = useMemo(() => {
-    const geo = new THREE.SphereBufferGeometry(.1, 10, 10);
-    const mat = new THREE.MeshBasicMaterial({ color: new THREE.Color('gray') });
-    const coords = new Array(200).fill().map(i => [
-      Math.random() * d - r,
-      Math.random() * d - r,
-      Math.random() * d - r
-    ]);
+    let color = '#111111';
+    color = colorLuminance(color, 2 + Math.random() * 10);
 
-    // coords.reduce((prev, cur, i) => {
+    const geo = new THREE.DodecahedronGeometry(0.01 + Math.random() * 2, 1);
+    const mat = new THREE.MeshStandardMaterial({
+      color,
+      roughness: 0.8,
+      metalness: 1
+    });
+    mat.flatShading = true;
 
-    // });
-    
-    return [geo, mat, vertices, coords];
+    const coords = new Array(200).fill().map(i => ({
+      x: Math.random() * d - r,
+      y: Math.random() * d - r,
+      z: Math.random() * d - r
+    }));
+
+     return [geo, mat, vertices, coords];
   }, []);
 
   return (
     <group ref={group}>
-      {coords.map(([p1, p2, p3], i) => (
-        <mesh key={i} geometry={geo} material={mat} position={[p1, p2, p3]} renderOrder={2} />
+      {coords.map(({x, y, z}, i) => (
+        <mesh 
+          key={i} 
+          receiveShadow
+          castShadow
+          geometry={geo} 
+          material={mat} 
+          position={[x, y, z]} 
+          renderOrder={2} 
+        />
       ))}
     </group>
   )
