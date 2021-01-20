@@ -6,7 +6,7 @@
     "@researchgate/react-intersection-observer": "^0.6.0",
     "axios": "^0.15.3",
     "classnames": "^2.2.5",
-    "gsap": "^1.20.4",
+    "gsap": "^3.6.0",
     "html-react-parser": "^0.4.0",
     "intersection-observer": "^0.5.0",
     "lodash": "^4.17.4",
