@@ -29,7 +29,7 @@
     "redux": "^3.6.0",
     "redux-form": "^7.3.0",
     "redux-thunk": "^2.2.0",
-    "three": "^0.91.0"
+    "three": "^0.137.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.16",
